@@ -10,8 +10,8 @@
    var $target = $(this);
    opts.wrapper = $target.closest('div')
    opts.actual = opts.firstpage;
-    if (opts.paginator == true) {
-       opts.total_pages = Math.ceil(($(opts.element , $target).length)/opts.perpage);
+   opts.total_pages = Math.ceil(($(opts.element , $target).length)/opts.perpage);
+    if (opts.paginator == true && opts.navigation == false) {
        (opts.showcounter == true)? opts.showcounter ='<li><span class="actual"></span>/<span class="total">'+opts.total_pages+'</span></li>' : opts.showcounter = ' ';
        var paginatorHTML = '<li class="next"><a href="#">'+opts.next_txt+'</a></li>'+
                            opts.showcounter+
@@ -40,6 +40,47 @@
          };
        })
        
+    };
+    
+    if (opts.navigation == true && opts.paginator == false) {
+      var navigationHTML = "";
+      var actual;
+      
+      
+      for (var i = 1; i <= opts.total_pages; i++){
+        (opts.firstpage == i)? actual = ' class="active" ' : actual = '';
+        navigationHTML += '<li'+actual+'><a rel="'+i+'" href="#">'+i+'</a></li>';
+      };
+      
+      // (opts.firstpage-1 <= 0)? navigationHTML += "" : navigationHTML += '<li class="prev"><a rel="'+(opts.firstpage-1)+'" href="#">'+opts.prev_txt+'</a></li>';
+      // (opts.firstpage-2 <= 0)? navigationHTML += "" : navigationHTML += '<li><a rel="'+(opts.firstpage-2)+'" href="#">'+(opts.firstpage-2)+'</a></li>';
+      // (opts.firstpage-1 <= 0)? navigationHTML += "" : navigationHTML += '<li><a rel="'+(opts.firstpage-1)+'" href="#">'+(opts.firstpage-1)+'</a></li>';
+      // navigationHTML += '<li class="active"><a rel="'+(opts.firstpage)+'" href="#">'+(opts.firstpage)+'</a></li>';
+      // (opts.firstpage+1 >= opts.total_pages)? navigationHTML += "" : navigationHTML += '<li><a rel="'+(opts.firstpage+1)+'" href="#">'+(opts.firstpage+1)+'</a></li>';
+      // (opts.firstpage+2 >= opts.total_pages)? navigationHTML += "" : navigationHTML += '<li><a  rel="'+(opts.firstpage+2)+'" href="#">'+(opts.firstpage+2)+'</a></li>';
+      // (opts.firstpage+1 >= opts.total_pages)? navigationHTML += "" : navigationHTML += '<li class="next"><a  rel="'+(opts.firstpage+1)+'" href="#">'+opts.next_txt+'</a></li>';
+      
+      //pagination controls construct
+      //TODO hacer function
+       if (opts.paginator_selector == false) {
+         $target.after('<ul class="paginator">'+navigationHTML+'</ul>')
+         opts.paginator_selector = ".paginator"
+       }else{
+         $(opts.paginator_selector , $.fn.flexipage.options.parent_cont ).html(navigationHTML)
+       };
+       
+       // CLICK EVENTS
+       $(opts.paginator_selector+' li a', opts.wrapper).click(function(e){
+          e.preventDefault();
+          var $$ = $(this)
+          $('li', $$.closest('ul')).removeClass('active')
+          $$.parent().addClass('active')
+          var topage = $$.attr('rel');
+          if (topage <= opts.total_pages && topage > 0) {
+            $.fn.flexipage.selectPage( topage , $target, opts);
+          };
+        })
+      
     };
    
     $.fn.flexipage.selectPage(opts.firstpage, $target, opts);
@@ -89,7 +130,8 @@
     showcounter : true,
     hidden_css : {display:'none'},
     visible_css : {display:'block'},
-    firstpage : 1
+    firstpage : 1,
+    navigation: false
   };
 
 
