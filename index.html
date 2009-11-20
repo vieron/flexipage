@@ -9,18 +9,40 @@
 	<meta name="author" content="macvieron">
 	
 	<style type="text/css" media="screen">
+	  ul{
+	    margin:0;
+	    padding:0;
+	  }
+	  
+	  code {
+	    margin-bottom:1em;
+	    display:block;
+	  }
+	  
+	  .paginator {
+	    overflow:hidden;
+	    padding-top:1em;
+	  }
+	  
+	  .paginator li{
+      float:left;
+      list-style-type:none;
+      margin-right:.3em;
+	  }
+	  
 	  body {
       font-family:Helvetica, Arial, sans-serif;
       font-size:12px;
     }
-	
+	  
 	  img,
 	  a {
 	    border:none;
 	  }
 	  
-	  .active {
-     color:green;
+	  .active a {
+     color:blue;
+     font-weight:bold;
     }
     
     .disabled a{
@@ -37,7 +59,36 @@
       float:left;
     }
   
-
+  
+    /*for carousel*/
+    .flexiwrap {
+      width:100px;
+      height:75px;
+    }
+    
+    .example-8,
+    .example-9{
+      width:8888px;
+    }
+    
+    .example-8 a,
+    .example-9 a{
+      width:100px;
+      height:75px;
+    }
+    
+    .example-8 a,
+    .example-9 a{
+      float:left;
+    }
+    
+    .example-8 a,
+    .example-9 a,
+    .example-8 img,
+    .example-9 img {
+      display:block;
+    }
+    
 
 	</style>
 	
@@ -85,7 +136,22 @@
          element:'a',
          perpage:1
      });
-	   
+
+     $('.example-8').flexipage({
+         element:'a',
+         perpage:1,
+         carousel: true
+     });
+
+
+	    $('.example-9').flexipage({
+          element:'a',
+          perpage:1,
+          carousel: true,
+          navigation: true,
+          paginator: false
+      });
+     
 
 	   
 	 })
@@ -112,6 +178,7 @@
     <dt>visible_css <span>object</span></dt><dd>{display:'block'}</dd>
     <dt>firstpage <span>number</span></dt><dd>1</dd>
     <dt>navigation <span>boolean</span></dt><dd>false</dd>
+    <dt>carousel <span>boolean</span></dt><dd>false</dd>
   </dl>
 </div><!-- .doc -->
 
@@ -404,6 +471,84 @@
     	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
     </ul>
   </div>
+  
+  
+  <hr />
+
+  <h3>Carrusel</h3>
+  <code>
+    $('.example-8').flexipage({
+         element:'a',
+         perpage:1,
+         carousel: true
+     });
+  </code>
+  <div>
+    <ul class="example-8">
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a> 
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a> 
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    </ul>
+  </div>
+
+
+  <hr />
+
+  <h3>Carrusel con paginador completo</h3>
+  <code>
+    $('.example-9').flexipage({
+        element:'a',
+        perpage:1,
+        carousel: true,
+        navigation: true,
+        paginator: false
+    });
+  </code>
+  <div>
+    <ul class="example-9">
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a> 
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a> 
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    </ul>
+  </div>
+
+
 
 </div><!-- .examples -->
 
