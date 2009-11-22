@@ -1,4 +1,5 @@
 (function($) {
+  
  $.fn.flexipage = function(options) {
 
  // build main options before element iteration
@@ -6,8 +7,11 @@
   $.fn.flexipage.options = opts;
 
  // iterate and reformat each matched element
+ 
  return this.each(function() {
    var $target = $(this);
+   $target.opts = opts;
+   console.log($target.opts)
    opts.wrapper = $target.closest('div')
    opts.actual = opts.firstpage;
    opts.total_pages = Math.ceil(($(opts.element , $target).length)/opts.perpage);
@@ -39,7 +43,7 @@
         
         if (opts.actual <= (opts.total_pages+1)) {
           $.fn.flexipage.selectPage( opts.actual-1 , $target, opts);
-        };b
+        };
       })
    };
       
@@ -90,11 +94,11 @@
    $.fn.flexipage.selectPage(opts.firstpage, $target, opts);
 
   });
- };
+ }; 
   
  
   //show pages function
-  $.fn.flexipage.selectPage = function(n, parent, opts) {
+  $.fn.flexipage.selectPage = function(n, parent, options) {
     
     if (n==0 || n==undefined)
       n = 1
@@ -121,8 +125,6 @@
        $(opts.paginator_selector+' .prev', opts.wrapper).addClass('disabled');
     
     opts.actual = n;
-    
-
     
   };
   
