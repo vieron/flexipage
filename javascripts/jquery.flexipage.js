@@ -39,10 +39,10 @@
         
         if (opts.actual <= (opts.total_pages+1)) {
           $.fn.flexipage.selectPage( opts.actual-1 , $target, opts);
-        };
+        };b
       })
    };
-   
+      
    //if navigation is set to true
    if (opts.navigation == true && opts.paginator == false) {
      var navigationHTML = "";
@@ -74,7 +74,7 @@
          };
        })
    };
-   
+   //if carousel set to true
    if (opts.carousel == true) {
      opts.wrapper_width = $(opts.element, $target).width();
      $target.wrap('<div class="flexiwrap"></div>')
