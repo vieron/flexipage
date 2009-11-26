@@ -143,17 +143,19 @@
          carousel: true
      });
 
-	    var pages = $('.example-9').flexipage({
+  
+	  var a = $('.example-9').flexipage({
           element:'a',
           perpage:1,
           carousel: true,
           navigation: true,
           paginator: false
       });
-      
-      console.log(pages)
      
-
+      $('.prueba').click(function(e){
+			e.preventDefault()
+			a.selectPage(3)
+            })
 	   
 	 })
 	</script>
@@ -165,6 +167,9 @@
 <body>
 
 <h1>jquery.flexipage</h1>
+
+
+<a href="http://www.google.es">holaaaaaa</a>
 
 <div class="doc">
   <dl>
@@ -553,6 +558,8 @@
 
 </div><!-- .examples -->
 
+
+<a href="#" class="prueba">Ir a la página 3</a>
 
 
 </body>

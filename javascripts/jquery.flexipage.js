@@ -1,17 +1,22 @@
+var colect = [];
+
 (function($) {
+
+
   
  $.fn.flexipage = function(options) {
 
  // build main options before element iteration
  var opts = $.extend({}, $.fn.flexipage.defaults, options);
-  $.fn.flexipage.options = opts;
+ $.fn.flexipage.options = opts;
 
  // iterate and reformat each matched element
  
- return this.each(function() {
+ return this.each(function() {   
    var $target = $(this);
-   $target.opts = opts;
-   console.log($target.opts)
+
+   $target.data("opts", opts)
+
    opts.wrapper = $target.closest('div')
    opts.actual = opts.firstpage;
    opts.total_pages = Math.ceil(($(opts.element , $target).length)/opts.perpage);
@@ -34,7 +39,7 @@
         e.preventDefault();
    
         if (opts.actual <= (opts.total_pages-1)) {
-          $.fn.flexipage.selectPage( opts.actual+1 , $target, opts);
+          $target.selectPage( opts.actual+1 );
         };
       })
       //click event for prev page 
@@ -42,7 +47,7 @@
         e.preventDefault();
         
         if (opts.actual <= (opts.total_pages+1)) {
-          $.fn.flexipage.selectPage( opts.actual-1 , $target, opts);
+          $target.selectPage( opts.actual-1 );
         };
       })
    };
@@ -74,7 +79,7 @@
          $$.parent().addClass('active')
          var topage = $$.attr('rel');
          if (topage <= opts.total_pages && topage > 0) {
-           $.fn.flexipage.selectPage( topage , $target, opts);
+           $target.selectPage(topage);
          };
        })
    };
@@ -91,14 +96,18 @@
    };
    
    //show first page, first time
-   $.fn.flexipage.selectPage(opts.firstpage, $target, opts);
+   $target.selectPage(opts.firstpage);
 
   });
+	
  }; 
+
   
- 
   //show pages function
-  $.fn.flexipage.selectPage = function(n, parent, options) {
+  $.fn.selectPage = function(n){
+    
+    var opts = $(this).data('opts')
+    var parent = $(this)
     
     if (n==0 || n==undefined)
       n = 1
