@@ -13,6 +13,10 @@
 	    margin:0;
 	    padding:0;
 	  }
+	
+	 a{
+		outline:none;
+	  }
 	  
 	  code {
 	    margin-bottom:1em;
@@ -34,9 +38,8 @@
       font-family:Helvetica, Arial, sans-serif;
       font-size:12px;
     }
-	  
-	  img,
-	  a {
+
+	img, a{
 	    border:none;
 	  }
 	  
@@ -49,7 +52,6 @@
       text-decoration:line-through;
     }
     
-
     .example-6 {
       overflow:hidden;
       width:500px;
@@ -58,7 +60,6 @@
     .example-6 li {
       float:left;
     }
-  
   
     /*for carousel*/
     .flexiwrap {
@@ -88,12 +89,9 @@
     .example-9 img {
       display:block;
     }
-    
-
 	</style>
 	
 	
-	<!-- Date: 2009-11-14 -->
 	<script src="javascripts/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="javascripts/jquery.flexipage.js" type="text/javascript" charset="utf-8"></script>
 	
@@ -144,7 +142,7 @@
      });
 
   
-	  var a = $('.example-9').flexipage({
+	  var example9 = $('.example-9').flexipage({
           element:'a',
           perpage:1,
           carousel: true,
@@ -152,11 +150,21 @@
           paginator: false
       });
      
-      $('.prueba').click(function(e){
+      $('.siguiente').click(function(e){
 			e.preventDefault()
-			a.selectPage(3)
-            })
-	   
+			example9.selectPage('next')
+      })
+
+	  $('.anterior').click(function(e){
+			e.preventDefault()
+			example9.selectPage('prev')
+      })
+
+	  $('.ir-a-5').click(function(e){
+			e.preventDefault()
+			example9.selectPage('5')
+      })
+
 	 })
 	</script>
 	
@@ -167,9 +175,6 @@
 <body>
 
 <h1>jquery.flexipage</h1>
-
-
-<a href="http://www.google.es">holaaaaaa</a>
 
 <div class="doc">
   <dl>
@@ -303,7 +308,7 @@
 
 <hr />
 
-  <h3>Paginacion personalizada</h3>
+  <h3>Paginación personalizada</h3>
   <code>
     $('.example-4').flexipage({
 	     perpage:3,
@@ -394,7 +399,7 @@
 
   <hr />
 
-  <h3>Galeria de fotos</h3>
+  <h3>Galería de fotos</h3>
   <code>
     $('.example-6').flexipage({
  	      element:'li',
@@ -553,13 +558,40 @@
     	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
     </ul>
   </div>
-
-
-
 </div><!-- .examples -->
 
+  <hr />
 
-<a href="#" class="prueba">Ir a la página 3</a>
+  <h3>Controles de paginación personalizados</h3>
+  <code><pre>
+	$('.siguiente').click(function(e){
+			e.preventDefault()
+			example9.selectPage('next')
+      })
+
+	  $('.anterior').click(function(e){
+			e.preventDefault()
+			example9.selectPage('prev')
+      })
+
+	  $('.ir-a-5').click(function(e){
+			e.preventDefault()
+			example9.selectPage('5')
+      })
+  </pre></code>
+  <div>
+   	<a href="#" class="anterior">Anterior</a>
+	<a href="#" class="ir-a-5">Ir a la página 5</a>
+	<a href="#" class="siguiente">Siguiente</a>
+  </div>
+
+ 
+
+
+
+
+
+
 
 
 </body>
