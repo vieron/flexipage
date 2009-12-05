@@ -4,96 +4,11 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>untitled</title>
-	<meta name="generator" content="TextMate http://macromates.com/">
-	<meta name="author" content="macvieron">
-	
-	<style type="text/css" media="screen">
-	  ul{
-	    margin:0;
-	    padding:0;
-	  }
-	
-	 a{
-		outline:none;
-	  }
-	  
-	  code {
-	    margin-bottom:1em;
-	    display:block;
-	  }
-	  
-	  .paginator {
-	    overflow:hidden;
-	    padding-top:1em;
-	  }
-	  
-	  .paginator li{
-      float:left;
-      list-style-type:none;
-      margin-right:.3em;
-	  }
-	  
-	  body {
-      font-family:Helvetica, Arial, sans-serif;
-      font-size:12px;
-    }
-
-	img, a{
-	    border:none;
-	  }
-	  
-	  .active a {
-     color:blue;
-     font-weight:bold;
-    }
-    
-    .disabled a{
-      text-decoration:line-through;
-    }
-    
-    .example-6 {
-      overflow:hidden;
-      width:500px;
-    }
-    
-    .example-6 li {
-      float:left;
-    }
-  
-    /*for carousel*/
-    .flexiwrap {
-      width:100px;
-      height:75px;
-    }
-    
-    .example-8,
-    .example-9{
-      width:8888px;
-    }
-    
-    .example-8 a,
-    .example-9 a{
-      width:100px;
-      height:75px;
-    }
-    
-    .example-8 a,
-    .example-9 a{
-      float:left;
-    }
-    
-    .example-8 a,
-    .example-9 a,
-    .example-8 img,
-    .example-9 img {
-      display:block;
-    }
-	</style>
-	
+	<title>jQuery.flexipage</title>
+	<link rel="stylesheet" href="stylesheets/flexipage.css" type="text/css" media="screen" charset="utf-8">	
 	
 	<script src="javascripts/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="javascripts/jquery.flexipage.js" type="text/javascript" charset="utf-8"></script>
+	<script src="javascripts/jquery.flexipage.min.js" type="text/javascript" charset="utf-8"></script>
 	
 	<script type="text/javascript" charset="utf-8">
 	 $(document).ready(function(){
@@ -105,14 +20,14 @@
 	   });
 	   
 	   $('.example-3').flexipage({
- 	     paginator : false,
+ 	     pager : false,
  	     navigation : true
  	   });
 	   
 	   $('.example-4').flexipage({
 	     perpage:3,
 	     firstpage: 3,
-	     next_txt: "Pasa baby!",
+	     next_txt: "Let`s go!",
 	     visible_css: {opacity:1},
 	     hidden_css: {opacity:0.2}
 	   });
@@ -121,8 +36,8 @@
 	     element:'fieldset',
  	     perpage:1,
  	     firstpage: 1,
- 	     next_txt: "Sigue rellenando &raquo;",
- 	     prev_txt: "&laquo; Vuelve atras"
+ 	     next_txt: "Continue &raquo;",
+ 	     prev_txt: "&laquo; Back"
  	   });
  	   
  	   $('.example-6').flexipage({
@@ -138,29 +53,33 @@
      $('.example-8').flexipage({
          element:'a',
          perpage:1,
-         carousel: true
+         carousel: true,
+		     speed:800,
+		     animation: "swing"
      });
 
   
-	  var example9 = $('.example-9').flexipage({
+	   var example9 = $('.example-9').flexipage({
           element:'a',
           perpage:1,
           carousel: true,
           navigation: true,
-          paginator: false
+          pager: false
       });
+     
+     
      
       $('.siguiente').click(function(e){
 			e.preventDefault()
 			example9.selectPage('next')
       })
 
-	  $('.anterior').click(function(e){
+	    $('.anterior').click(function(e){
 			e.preventDefault()
 			example9.selectPage('prev')
       })
 
-	  $('.ir-a-5').click(function(e){
+	    $('.ir-a-5').click(function(e){
 			e.preventDefault()
 			example9.selectPage('5')
       })
@@ -173,239 +92,382 @@
 
 </head>
 <body>
+  <div id="header">
+    <a class="logo" href="#">jquery.flexipage</a>
+    <h1>a jQuery plugin for paginate content</h1>
+  </div>
+  <div id="content">
+    <h2>What?</h2>
+    
+    <p>Flexipage is a <a href="http://www.jquery.com">jQuery</a> plugin for paginate any HTML content. Inspired in <a href="http://projects.allmarkedup.com/jquery_quick_paginate/">Quick Paginate</a> plugin.</p>
+    <ul>
+      <li>Paginate HTML elements you want</li>
+      <li>Customized navigation controls</li>      
+      <li>Tested in: IE 6.0+, FF 2+, Safari 2.0+</li>
+      <li>It's your code!</li>      
+    </ul>
 
-<h1>jquery.flexipage</h1>
+    <h2>Usage</h2>
+    <p>To use the flexipage plugin, include jQuery and jquery.flexipage inside the &lt;head&gt; tag of your document: </p>
+    <pre>
+&lt;script src=&quot;javascripts/<strong>jquery-1.3.2.min.js</strong>&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;javascripts/<strong>jquery.flexipage.js</strong>&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</pre>
+    
+    <p>Then write some HTML like this:</p>
+      <pre>
+&lt;div&gt;
+  &lt;ul class=&quot;fp-example&quot;&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+    &lt;li&gt;Item 4&lt;/li&gt;
+    ...
+    &lt;li&gt;Item 22&lt;/li&gt;
+    &lt;li&gt;Item 23&lt;/li&gt;
+    &lt;li&gt;Item 24&lt;/li&gt;
+    &lt;li&gt;Item 25&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</pre>
+    
+    <p>And start flexipage</p>
+      <pre>
+$('.fp-example').flexipage();
+      </pre>
+    
+    <p>You can also pass in configuration options when you initialize the pagination, for example:</p>
+      <pre>
+$('.fp-example').flexipage({
+    element:'a',
+    perpage:1,
+    carousel: true,
+    navigation: true,
+    pager: false
+});</pre>
+    
+    
+    <h2>Configuration</h2>    
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>element</td>
+          <td>string</td>
+          <td>'li'</td>
+          <td>Indicates the element you want to paginate</td>
+        </tr>
+        <tr>
+          <td>pager</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>This turns OFF pagination controls</td>
+        </tr>
+        <tr>
+          <td>next_txt</td>
+          <td>string</td>
+          <td>'Next'</td>
+          <td>(if pager is set to true) Next text</td>
+        </tr>
+        <tr>
+          <td>prev_txt</td>
+          <td>string</td>
+          <td>'Prev'</td>
+          <td>(if pager is set to true) Prev text</td>
+        </tr>
+        <tr>
+          <td>pager_selector</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>Custom CSS selector for pager controls wrapper (must be inside pagination wrapper) </td>
+        </tr>
+        <tr>
+          <td>perpage</td>
+          <td>number</td>
+          <td>5</td>
+          <td>Indicates the number of items to show per page</td>
+        </tr>
+        <tr>
+          <td>showcounter</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>This turns off pager counter which shows actual page and total pages</td>
+        </tr>
+        <tr>
+          <td>hidden_css</td>
+          <td>object</td>
+          <td>{display:'none'}</td>
+          <td>Indicates CSS conditions for elements in active page</td>
+        </tr>
+        <tr>
+          <td>visible_css</td>
+          <td>object</td>
+          <td>{display:'block'}</td>
+          <td>Indicates CSS conditions for elements in inactive pages</td>
+        </tr>
+        <tr>
+          <td>firstpage</td>
+          <td>number</td>
+          <td>1</td>
+          <td>The first page displayed when flexipage starts</td>
+        </tr>
+        <tr>
+          <td>navigation</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>Turns ON extended pager controls (one link per page)</td>
+        </tr>
+        <tr>
+          <td>carousel</td>
+          <td>boolean</td>
+          <td>false</td>
+          <td>Turns ON carousel</td>
+        </tr>
+        <tr>
+          <td>speed</td>
+          <td>number</td>
+          <td>300</td>
+          <td>(if carousel is set to true) Time lag between go from one page to next or prev</td>
+        </tr>
+        <tr>
+          <td>animation</td>
+          <td>string</td>
+          <td>'linear'</td>
+          <td>(if carousel is set to true) The name of the easing effect that you want to use, "linear" or "swing". For more: <a href="http://plugins.jquery.com/project/Easing">http://plugins.jquery.com/project/Easing</a></td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+    <h3>selectPage method</h3>
+    <p>You can control any pager from outside whit this method</p>
+    <pre>
+$('.fp-example').selectPage('next');
 
-<div class="doc">
-  <dl>
-    <dt>element <span>string</span> </dt><dd>"li"</dd>
-    <dt>paginator <span>boolean</span></dt><dd>true</dd>
-    <dt>next_txt <span>string</span></dt><dd>"Siguente"</dd>
-    <dt>prev_txt <span>string</span></dt><dd>"Anterior"</dd>
-    <dt>paginator_selector <span>boolean</span></dt><dd>false</dd>
-    <dt>perpage <span>number</span></dt><dd>5</dd>
-    <dt>showcounter <span>boolean</span></dt><dd>true</dd>
-    <dt>hidden_css <span>object</span></dt><dd>{display:'none'}</dd>
-    <dt>visible_css <span>object</span></dt><dd>{display:'block'}</dd>
-    <dt>firstpage <span>number</span></dt><dd>1</dd>
-    <dt>navigation <span>boolean</span></dt><dd>false</dd>
-    <dt>carousel <span>boolean</span></dt><dd>false</dd>
-  </dl>
-</div><!-- .doc -->
+$('.fp-example').selectPage('prev')
 
-<div class="examples">
-  <h2>Ejemplos</h2>
-  <h3>Paginación con contador</h3>
-  <code>
-    $('.example-1').flexipage();
-  </code>
+$('.fp-example').selectPage(9)</pre>
+    
+    
+    <h2>Download</h2>
+    <ul>
+      <!-- <li><a href="#">.zip package examples.</a></li> -->
+      <li><a href="http://github.com/vieron/flexipage">Download from github.com</a></li>
+      <!-- <li><a href="#">jquery.flexipage.js</a></li>
+      <li><a href="#">jquery.flexipage.min.js</a></li> -->
+    </ul>
+    
+  </div><!-- content -->
+
+<div id="examples">
+  <h2>Examples</h2>
+  <h3><span>Example 1</span> &raquo; Default pagination</h3>
   <div>
     <ul class="example-1">
-      <li>holaa 1</li>
-      <li>holaa2 </li>
-      <li>holaa3</li>
-      <li>holaa4</li>
-      <li>holaa5</li>
-      <li>holaa6</li>
-      <li>holaa7</li>
-      <li>holaa8</li>
-      <li>holaa9</li>
-      <li>holaa10</li>
-      <li>holaa11</li>
-      <li>holaa12</li>
-      <li>holaa14</li>
-      <li>holaa15</li>
-      <li>holaa16</li>
-      <li>holaa17</li>
-      <li>holaa18</li>
-      <li>holaa119</li>
-      <li>holaa20</li>
-      <li>holaa21</li>
-      <li>holaa22</li>
-      <li>holaa23</li>
-      <li>holaa24</li>
-      <li>holaa25</li>
-      <li>holaa26</li>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+      <li>Item 7</li>
+      <li>Item 8</li>
+      <li>Item 9</li>
+      <li>Item 10</li>
+      <li>Item 11</li>
+      <li>Item 12</li>
+      <li>Item 13</li>
+      <li>Item 14</li>
+      <li>Item 15</li>
+      <li>Item 16</li>
+      <li>Item 17</li>
+      <li>Item 18</li>
+      <li>Item 19</li>
+      <li>Item 20</li>
+      <li>Item 21</li>
+      <li>Item 22</li>
+      <li>Item 23</li>
+      <li>Item 24</li>
+      <li>Item 25</li>
     </ul>
   </div>
-
+  <pre>
+$('.example-1').flexipage();</pre>
+  
 <hr />
 
-  <h3>Paginación sin contador</h3>
-  <code>
-    $('.example-2').flexipage({
-	     showcounter:false
-	   });
-  </code>
+  <h3><span>Example 2</span> &raquo; Pagination without counter</h3>
   <div>
     <ul class="example-2">
-      <li>holaa 1</li>
-      <li>holaa2 </li>
-      <li>holaa3</li>
-      <li>holaa4</li>
-      <li>holaa5</li>
-      <li>holaa6</li>
-      <li>holaa7</li>
-      <li>holaa8</li>
-      <li>holaa9</li>
-      <li>holaa10</li>
-      <li>holaa11</li>
-      <li>holaa12</li>
-      <li>holaa14</li>
-      <li>holaa15</li>
-      <li>holaa16</li>
-      <li>holaa17</li>
-      <li>holaa18</li>
-      <li>holaa119</li>
-      <li>holaa20</li>
-      <li>holaa21</li>
-      <li>holaa22</li>
-      <li>holaa23</li>
-      <li>holaa24</li>
-      <li>holaa25</li>
-      <li>holaa26</li>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+      <li>Item 7</li>
+      <li>Item 8</li>
+      <li>Item 9</li>
+      <li>Item 10</li>
+      <li>Item 11</li>
+      <li>Item 12</li>
+      <li>Item 13</li>
+      <li>Item 14</li>
+      <li>Item 15</li>
+      <li>Item 16</li>
+      <li>Item 17</li>
+      <li>Item 18</li>
+      <li>Item 19</li>
+      <li>Item 20</li>
+      <li>Item 21</li>
+      <li>Item 22</li>
+      <li>Item 23</li>
+      <li>Item 24</li>
+      <li>Item 25</li>
+      <li>Item 26</li>
     </ul>
   </div>
-
+  <pre>
+$('.example-2').flexipage({
+   showcounter:false
+});</pre>
+  
 <hr />
 
-  <h3>Paginación con paginador completo</h3>
-  <code>
-    $('.example-3').flexipage({
- 	     paginator : false,
- 	     navigation : true
- 	   });
-  </code>
+  <h3><span>Example 3</span> &raquo; Pagination with full navigation (one link per page)</h3>  
   <div>
     <ul class="example-3">
-      <li>holaa 1</li>
-      <li>holaa2 </li>
-      <li>holaa3</li>
-      <li>holaa4</li>
-      <li>holaa5</li>
-      <li>holaa6</li>
-      <li>holaa7</li>
-      <li>holaa8</li>
-      <li>holaa9</li>
-      <li>holaa10</li>
-      <li>holaa11</li>
-      <li>holaa12</li>
-      <li>holaa14</li>
-      <li>holaa15</li>
-      <li>holaa16</li>
-      <li>holaa17</li>
-      <li>holaa18</li>
-      <li>holaa119</li>
-      <li>holaa20</li>
-      <li>holaa21</li>
-      <li>holaa22</li>
-      <li>holaa23</li>
-      <li>holaa24</li>
-      <li>holaa25</li>
-      <li>holaa26</li>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+      <li>Item 7</li>
+      <li>Item 8</li>
+      <li>Item 9</li>
+      <li>Item 10</li>
+      <li>Item 11</li>
+      <li>Item 12</li>
+      <li>Item 13</li>
+      <li>Item 14</li>
+      <li>Item 15</li>
+      <li>Item 16</li>
+      <li>Item 17</li>
+      <li>Item 18</li>
+      <li>Item 19</li>
+      <li>Item 20</li>
+      <li>Item 21</li>
+      <li>Item 22</li>
+      <li>Item 23</li>
+      <li>Item 24</li>
+      <li>Item 25</li>
+      <li>Item 26</li>
     </ul>
   </div>
+  <pre>
+$('.example-3').flexipage({
+   pager : false,
+   navigation : true
+});</pre>
 
 <hr />
 
-  <h3>Paginación personalizada</h3>
-  <code>
-    $('.example-4').flexipage({
-	     perpage:3,
-	     firstpage: 3,
-	     next_txt: "Pasa baby!",
-	     visible_css: {opacity:1},
-	     hidden_css: {opacity:0.2}
-	   });
-  </code>
+  <h3><span>Example 4</span> &raquo; Customized pager</h3>
   <div>
     <ul class="example-4">
-      <li>holaa 1</li>
-      <li>holaa2 </li>
-      <li>holaa3</li>
-      <li>holaa4</li>
-      <li>holaa5</li>
-      <li>holaa6</li>
-      <li>holaa7</li>
-      <li>holaa8</li>
-      <li>holaa9</li>
-      <li>holaa10</li>
-      <li>holaa11</li>
-      <li>holaa12</li>
-      <li>holaa14</li>
-      <li>holaa15</li>
-      <li>holaa16</li>
-      <li>holaa17</li>
-      <li>holaa18</li>
-      <li>holaa119</li>
-      <li>holaa20</li>
-      <li>holaa21</li>
-      <li>holaa22</li>
-      <li>holaa23</li>
-      <li>holaa24</li>
-      <li>holaa25</li>
-      <li>holaa26</li>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+      <li>Item 7</li>
+      <li>Item 8</li>
+      <li>Item 9</li>
+      <li>Item 10</li>
+      <li>Item 11</li>
+      <li>Item 12</li>
+      <li>Item 13</li>
+      <li>Item 14</li>
+      <li>Item 15</li>
+      <li>Item 16</li>
+      <li>Item 17</li>
+      <li>Item 18</li>
+      <li>Item 19</li>
+      <li>Item 20</li>
+      <li>Item 21</li>
+      <li>Item 22</li>
+      <li>Item 23</li>
+      <li>Item 24</li>
+      <li>Item 25</li>
+      <li>Item 26</li>
     </ul>
   </div>
-
+  <pre>
+$('.example-4').flexipage({
+   perpage:3,
+   firstpage: 3,
+   next_txt: "Pasa baby!",
+   visible_css: {opacity:1},
+   hidden_css: {opacity:0.2}
+});</pre>
 
 <hr />
 
 
-  <h3>Asistente</h3>
-  <code>
-    $('.example-5').flexipage({
-	     element:'fieldset',
- 	     perpage:1,
- 	     firstpage: 1,
- 	     next_txt: "Sigue rellenando &raquo;",
- 	     prev_txt: "&laquo; Vuelve atras"
- 	   });
-  </code>
+  <h3><span>Example 5</span> &raquo; Form Wizard</h3>
   <div>
     <form class="example-5" action="#" method="get" accept-charset="utf-8">
       <fieldset id="step_1">
         <legend>Paso 1</legend>
         <p>
-          <label for="nombre">Nombre</label><input type="text" name="nombre" value="" id="nombre">
+          <label for="nombre">Name</label><input type="text" name="nombre" value="" id="nombre">
         </p>
         <p>
-          <label for="appellidos">Apellidos</label><input type="text" name="apellidos" value="" id="apellidos">
+          <label for="appellidos">Surname</label><input type="text" name="apellidos" value="" id="apellidos">
         </p>
       </fieldset>
       <fieldset id="step_2">
         <legend>Paso 2</legend>
         <p>
-          <label for="nombre">Direccion postal</label><input type="text" name="nombre" value="" id="nombre">
+          <label for="nombre">ZIP code</label><input type="text" name="nombre" value="" id="nombre">
         </p>
         <p>
-          <label for="appellidos">Provincia</label><input type="text" name="apellidos" value="" id="apellidos">
+          <label for="appellidos">City</label><input type="text" name="apellidos" value="" id="apellidos">
         </p>
       </fieldset>
       <fieldset id="step_3">
         <legend>Paso 3</legend>
         <p>
-          <label for="nombre">Numero de cuenta</label><input type="text" name="nombre" value="" id="nombre">
+          <label for="nombre">Address</label><input type="text" name="nombre" value="" id="nombre">
         </p>
         <p>
-          <label for="appellidos">Banco</label><input type="text" name="apellidos" value="" id="apellidos">
+          <label for="appellidos">Phone</label><input type="text" name="apellidos" value="" id="apellidos">
         </p>
         <p>
-          <button type="submit">Guardar</button>
+          <button type="submit">Save</button>
         </p>
       </fieldset>
     </form>
   </div><!-- .name -->
-
+  <pre>
+$('.example-5').flexipage({
+   element:'fieldset',
+   perpage:1,
+   firstpage: 1,
+   next_txt: "Continue &raquo;",
+   prev_txt: "&laquo; Back"
+});</pre>
+  
   <hr />
 
-  <h3>Galería de fotos</h3>
-  <code>
-    $('.example-6').flexipage({
- 	      element:'li',
-  	     perpage:10
-  	 });
-  </code>
+  <h3><span>Example 6</span> &raquo; Photo Gallery</h3>
   <div>
     <ul class="example-6">
     	<li><a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  </li>
@@ -446,17 +508,15 @@
       <li><a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a>  </li>
     </ul>
   </div>
-
+  <pre>
+$('.example-6').flexipage({
+     element:'li',
+     perpage:10
+});</pre>
 
   <hr />
 
-  <h3>Slide</h3>
-  <code>
-    $('.example-7').flexipage({
-         element:'a',
-         perpage:1
-     });
-  </code>
+  <h3><span>Example 7</span> &raquo; Image slide</h3>
   <div>
     <ul class="example-7">
     	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  
@@ -482,18 +542,15 @@
     	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
     </ul>
   </div>
-  
+  <pre>
+$('.example-7').flexipage({
+     element:'a',
+     perpage:1
+});</pre>
   
   <hr />
 
-  <h3>Carrusel</h3>
-  <code>
-    $('.example-8').flexipage({
-         element:'a',
-         perpage:1,
-         carousel: true
-     });
-  </code>
+  <h3><span>Example 8</span> &raquo; Carousel</h3>
   <div>
     <ul class="example-8">
     	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  
@@ -519,22 +576,20 @@
     	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
     </ul>
   </div>
-
+  <pre>
+$('.example-8').flexipage({
+     element:'a',
+     perpage:1,
+     carousel: true,
+     speed:800,
+     animation: "swing"
+});</pre>
 
   <hr />
 
-  <h3>Carrusel con paginador completo</h3>
-  <code>
-    $('.example-9').flexipage({
-        element:'a',
-        perpage:1,
-        carousel: true,
-        navigation: true,
-        paginator: false
-    });
-  </code>
+  <h3><span>Example 9</span> &raquo; Customized carousel</h3>
   <div>
-    <ul class="example-9">
+    <ul class="example-9 example">
     	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  
     	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
     	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
@@ -558,32 +613,42 @@
     	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
     </ul>
   </div>
-</div><!-- .examples -->
-
+  <pre>
+var example9 = $('.example-9').flexipage({
+                  element:'a',
+                  perpage:1,
+                  carousel: true,
+                  navigation: true,
+                  pager: false
+                });</pre>
+  
   <hr />
 
-  <h3>Controles de paginación personalizados</h3>
-  <code><pre>
-	$('.siguiente').click(function(e){
-			e.preventDefault()
-			example9.selectPage('next')
-      })
-
-	  $('.anterior').click(function(e){
-			e.preventDefault()
-			example9.selectPage('prev')
-      })
-
-	  $('.ir-a-5').click(function(e){
-			e.preventDefault()
-			example9.selectPage('5')
-      })
-  </pre></code>
+  <h3>Using selectPage method</h3>
   <div>
-   	<a href="#" class="anterior">Anterior</a>
-	<a href="#" class="ir-a-5">Ir a la página 5</a>
-	<a href="#" class="siguiente">Siguiente</a>
+   	<a href="#" class="anterior">Prev</a>
+	  <a href="#" class="ir-a-5">Go to page 5</a>
+	  <a href="#" class="siguiente">Next</a>
   </div>
+  <pre>
+$('.siguiente').click(function(e){
+e.preventDefault()
+example9.selectPage('next')
+})
+
+$('.anterior').click(function(e){
+e.preventDefault()
+example9.selectPage('prev')
+})
+
+$('.ir-a-5').click(function(e){
+e.preventDefault()
+example9.selectPage('5')
+})
+  </pre>
+</div><!-- .examples -->
+
+  
 
  
 
