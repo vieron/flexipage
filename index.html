@@ -245,7 +245,7 @@ $('.fp-example').flexipage({
     </table>
     
     <h3>selectPage method</h3>
-    <p>You can control any pager from outside whit this method</p>
+    <p>You can control any pager from outside whit this method:</p>
     <pre>
 $('.fp-example').selectPage('next');
 
@@ -480,19 +480,19 @@ $('.example-5').flexipage({
     	<li><a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a>  </li>
     	<li><a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>   </li>
     	<li><a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    </li>
-    	 <li><a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  </li>
-    	 <li><a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    </li>
+    	<li><a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  </li>
+    	<li><a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    </li>
      	<li><a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a>  </li>
-       <li><a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a></li>
-       <li><a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>   </li>
-       <li><a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    </li>
-       <li><a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a>  </li>
-       <li><a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  </li>
+      <li><a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a></li>
+      <li><a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>   </li>
+      <li><a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    </li>
+      <li><a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a>  </li>
+      <li><a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  </li>
     	<li><a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>   </li>
     	<li><a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    </li>
     	<li><a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a>  </li>
     	<li><a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  </li>
-    	 <li><a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  </li>
+    	<li><a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  </li>
     	<li><a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a></li>
     	<li><a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>   </li>
     	<li><a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    </li>
@@ -625,11 +625,13 @@ var example9 = $('.example-9').flexipage({
   <hr />
 
   <h3>Using selectPage method</h3>
+  <p>Click and see the example above.</p>
   <div>
    	<a href="#" class="anterior">Prev</a>
 	  <a href="#" class="ir-a-5">Go to page 5</a>
 	  <a href="#" class="siguiente">Next</a>
   </div>
+  
   <pre>
 $('.siguiente').click(function(e){
 e.preventDefault()
@@ -648,16 +650,23 @@ example9.selectPage('5')
   </pre>
 </div><!-- .examples -->
 
+
+<div id="footer">
+  <h2>Support</h2>
+  <p>You can post issues <a href="http://github.com/vieron/flexipage/issues">here</a>.</p>
   
+  <h2>Credits</h2>
+  <p>Written by <a href="http://www.vieron.net">vieron</a>. Feel free to manipulate and use the code. :)</p>
+</div>
 
- 
-
-
-
-
-
-
-
-
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11925139-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
 </body>
 </html>

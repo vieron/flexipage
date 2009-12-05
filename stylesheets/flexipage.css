@@ -24,9 +24,14 @@ a:hover{
 
 #header,
 #content,
-#examples{
-  padding:3em 0 3em 20em;
+#examples,
+#footer{
+  padding:2em 0 1em 20em;
   width:67em;
+}
+
+#header {
+  padding-bottom:3em;
 }
 
 #header a.logo {
