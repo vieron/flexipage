@@ -188,6 +188,12 @@ img, a{
   text-decoration:line-through;
 }
 
+
+/*CSS for examples*/
+
+
+
+
 .example-6 {
   overflow:hidden;
   width:500px;
@@ -197,7 +203,7 @@ img, a{
   float:left;
 }
 
-/*for carousel*/
+/* Needed for carousel*/
 .flexiwrap {
   width:100px;
   height:75px;
@@ -224,4 +230,22 @@ img, a{
 .example-8 img,
 .example-9 img {
   display:block;
+}
+
+
+
+.large-carousel .flexiwrap{
+  width:500px;
+}
+
+.large-carousel .flexiwrap a{
+  width:100px;
+}
+
+.large-carousel .flexiwrap ul{
+  width:99999px;
+}
+
+.large-carousel .flexiwrap a{
+  float:left;
 }

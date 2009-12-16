@@ -68,7 +68,6 @@
       });
      
      
-     
       $('.siguiente').click(function(e){
 			e.preventDefault()
 			example9.selectPage('next')
@@ -83,6 +82,26 @@
 			e.preventDefault()
 			example9.selectPage('5')
       })
+
+        
+      $('.example-10').flexipage({
+           element:'a',
+           perpage:5,
+           carousel: true,
+  		     speed:1000,
+  		     animation: "swing"
+       });
+       
+       $('.example-10b').flexipage({
+            element:'a',
+            perpage:1,
+            carousel: true,
+   		     speed:800,
+   		     animation: "swing"
+        });
+      
+
+
 
 	 })
 	</script>
@@ -648,6 +667,80 @@ e.preventDefault()
 example9.selectPage('5')
 })
   </pre>
+  
+  
+  <hr />
+
+  <h3><span>Example 10</span> &raquo; Large carousel</h3>
+  <div class="large-carousel">
+    <ul class="example-10 example">
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a> 
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a> 
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    </ul>
+  </div>
+  <pre>
+$('.example-10').flexipage({
+  element:'a',
+  perpage:5,
+  carousel: true,
+  speed:1000,
+  animation: "swing"
+});</pre>
+
+  <div class="large-carousel">
+    <ul class="example-10b example">
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a>  
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a> 
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>    
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a>  
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    	<a href="images/aire_libre.jpg"><img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" /></a> 
+    	<a href="images/novia.jpg"><img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" /></a>
+    	<a href="images/pareja.jpg"><img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" /></a> 
+    	<a href="images/pies.jpg"><img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" /></a>  
+    	<a href="images/vestido.jpg"><img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" /></a> 
+    </ul>
+  </div>
+  <pre>
+$('.example-10b').flexipage({
+  element:'a',
+  perpage:1,
+  carousel: true,
+  speed:800,
+  animation: "swing"
+});</pre>
+
+  
 </div><!-- .examples -->
 
 

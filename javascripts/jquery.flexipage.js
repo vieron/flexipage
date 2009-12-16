@@ -29,6 +29,9 @@
     // iterate and reformat each matched element
 
     return this.each(function() {   
+      if (opts.pager == true) opts.navigation == false;
+      if (opts.navigation == true) opts.pager == false;
+      
       var $target = $(this);
       $target.data("opts", opts)
 
@@ -96,8 +99,9 @@
         $target.parent().css({overflow:'hidden', position: 'relative'})
         $target.css({overflow:'hidden', position: 'absolute', top: '0px', left: '0px' })
         opts.distances = [];
+        
         for (var i = 0; i <= opts.total_pages; i++){
-          opts.distances[i] =  i*opts.wrapper_width
+          opts.distances[i] =  (i*opts.perpage)*opts.wrapper_width
         };
       };
 
