@@ -234,6 +234,11 @@ img, a{
 
 
 
+.large-carousel .flexiwrap a,
+.large-carousel .flexiwrap img{
+  display:block;
+}
+
 .large-carousel .flexiwrap{
   width:500px;
 }
