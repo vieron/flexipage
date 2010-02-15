@@ -1,1 +1,1 @@
-view examples at http://www.vieron.net/flexipage
+view examples at http://flexipage.vieron.net
