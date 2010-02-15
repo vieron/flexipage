@@ -94,14 +94,16 @@
 
       //if carousel set to true
       if (opts.carousel == true) {
-        opts.wrapper_width = $(opts.element, $target).width();
+        opts.elements = $(opts.element, $target);
         $target.wrap('<div class="flexiwrap"></div>')
         $target.parent().css({overflow:'hidden', position: 'relative'})
         $target.css({overflow:'hidden', position: 'absolute', top: '0px', left: '0px' })
         opts.distances = [];
         
         for (var i = 0; i <= opts.total_pages; i++){
-          opts.distances[i] =  (i*opts.perpage)*opts.wrapper_width
+          opts.distances[i] =  (i*opts.perpage)*$($(opts.elements[i]), $target).width();
+          // console.log($target.attr('class')+'-->'+(i*opts.perpage)*opts.wrapper_width);
+          console.log($target.attr('class')+'-->'+opts.wrapper_width);
         };
       };
 

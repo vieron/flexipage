@@ -220,13 +220,13 @@ img, a{
   height:75px;
 }
 
-.example-8 a,
-.example-9 a{
+.example-8 li,
+.example-9 li{
   float:left;
 }
 
-.example-8 a,
-.example-9 a,
+.example-8 li,
+.example-9 li,
 .example-8 img,
 .example-9 img {
   display:block;
@@ -234,8 +234,8 @@ img, a{
 
 
 
-.large-carousel .flexiwrap a,
-.large-carousel .flexiwrap img{
+
+.large-carousel img{
   display:block;
 }
 
@@ -243,14 +243,13 @@ img, a{
   width:500px;
 }
 
-.large-carousel .flexiwrap a{
-  width:100px;
+.large-carousel .flexiwrap li{
+  float:left;
+  list-style:none;
 }
 
 .large-carousel .flexiwrap ul{
   width:99999px;
 }
 
-.large-carousel .flexiwrap a{
-  float:left;
-}
+
