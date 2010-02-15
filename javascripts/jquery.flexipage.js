@@ -102,8 +102,6 @@
         
         for (var i = 0; i <= opts.total_pages; i++){
           opts.distances[i] =  (i*opts.perpage)*$($(opts.elements[i]), $target).width();
-          // console.log($target.attr('class')+'-->'+(i*opts.perpage)*opts.wrapper_width);
-          console.log($target.attr('class')+'-->'+opts.wrapper_width);
         };
       };
 
@@ -157,6 +155,9 @@
     };
     opts.actual = parseInt(n);
   };
+
+
+	
 
 
 
