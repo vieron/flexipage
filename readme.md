@@ -1,1 +1,1 @@
-view examples at http://flexipage.vieron.net
+**OBSOLETE - DISCONTINUED**
